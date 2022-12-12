@@ -40,7 +40,7 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    ]
+    'Users']
 
 THIRD_APPS = [
     'rest_framework',
