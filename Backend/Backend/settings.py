@@ -40,7 +40,9 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'Users']
+    'apps.Users',
+    'apps.notes'
+    ]
 
 THIRD_APPS = [
     'rest_framework',
@@ -58,6 +60,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
 
 ROOT_URLCONF = 'Backend.urls'
 
@@ -89,7 +101,7 @@ DATABASES = {
         'OPTIONS': {'sql_mode': 'traditional',},
         'NAME': 'appnotes',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'rootroot',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -114,6 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL='Users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
