@@ -2,11 +2,11 @@
 from rest_framework import serializers
 
 # Models
-from notes.models import Notes
+from ..models import Notes
 
 # Serializer
 class NoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Notes
-        fields = "__all__"
+        fields = ('__all__')

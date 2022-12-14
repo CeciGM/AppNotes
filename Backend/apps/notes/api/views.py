@@ -7,10 +7,10 @@ from rest_framework.response import Response
 from rest_framework import status
 
 # Models imports
-from notes.models import Notes
+from ..models import Notes
 
 # Serializers imports
-from notes.api.serializers import NoteSerializer
+from .serializers import NoteSerializer
 
 # Create your views here.
 
@@ -39,7 +39,7 @@ class NoteApiView(APIView):
         serializer = NoteSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save
+            serializer.save()
 
             data = {
                 "message" : "La nota se creó efectivamente"
@@ -64,7 +64,7 @@ class CreateNoteApiView(APIView):
         serializer = NoteSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save
+            serializer.save()
 
             data = {
                 "message" : "La nota se creó efectivamente"

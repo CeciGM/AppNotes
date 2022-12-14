@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(('apps.Users.api.urls', 'Users'), namespace='core-api')),
     path('api-auth/', include('rest_framework.urls')),
+    path('notes',include(('apps.notes.api.urls','notes'), namespace='notes-api')),
 ]
 
