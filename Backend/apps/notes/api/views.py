@@ -109,16 +109,31 @@ class NoteDetailApiView(APIView):
     def put(self, request, pk):
         """Modifica una nota"""
 
-        pass
-        
-        # --> hay que completar el put
-    
+        nota = Notes.objects.get(pk=pk)
+        serializer = NoteSerializer(nota, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response(
+                {'message': 'Nota modificada correctamente'},
+                status=status.HTTP_200_OK
+            )
+        return Response(
+            data=serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
     def delete(self, request, pk):
         """Elimina una nota"""
 
-        pass
+        note = Notes.objects.get(pk=pk)
+        note.delete()
 
-        # --> hay que completar el delete
+        return Response(
+            {'message': 'Nota eliminada correctamente'},
+            status=status.HTTP_200_OK
+        )
                 
 
 

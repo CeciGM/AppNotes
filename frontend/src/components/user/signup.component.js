@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {useParams,useNavigate } from "react-router-dom";
 
 
 // IMPORT Select (componente de react) Instalacion = npm i --save react-select 
-import Select from 'react-select';
+/*import Select from 'react-select';*/
 // DOC: https://react-select.com/home
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -68,10 +68,10 @@ const SignUser = () => {
     }
 
 
-  {
+  
     return (
       <form onSubmit={handleSubmit}>
-        <h3>Sign Up</h3>
+        <h3>Sign up</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -126,6 +126,6 @@ const SignUser = () => {
         </p>
       </form>
     )
-  }
-};
+  };
+
 export default SignUser;

@@ -104,7 +104,7 @@ DATABASES = {
         'OPTIONS': {'sql_mode': 'traditional',},
         'NAME': 'appnotes',
         'USER': 'root',
-        'PASSWORD': 'rootroot',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',        
         'PORT': '3306',
     }
