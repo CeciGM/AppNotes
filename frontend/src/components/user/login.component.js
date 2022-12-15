@@ -35,10 +35,10 @@ export default function Login() {
       login();
 
   };
-   
+   {
     return (
       <form onSubmit={handleSubmit}>
-        <h3>Login</h3>
+        <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -57,6 +57,15 @@ export default function Login() {
             onChange={onChangePas} value={password} required
           />
         </div>
+        <div className="mb-3">
+          <div className="custom-control custom-checkbox">
+            <input
+              type="checkbox"
+              className="custom-control-input"
+              id="customCheck1"
+            />
+          </div>
+        </div>
         <div className="d-grid">
           <button type="submit"  className="btn btn-primary">
             Submit
@@ -64,4 +73,5 @@ export default function Login() {
         </div>
       </form>
     )
+  }
 }

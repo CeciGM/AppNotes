@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, set} from "react";
 import {useParams,useNavigate } from "react-router-dom";
 
 
 // IMPORT Select (componente de react) Instalacion = npm i --save react-select 
-/*import Select from 'react-select';*/
+import Select from 'react-select';
 // DOC: https://react-select.com/home
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,15 +31,11 @@ const SignUser = () => {
 
     const [user, setUser] = useState(initialState);
     
-
-  
-
-
     const handleInputChange = (e) => {
       //console.log(e);
        //console.log(e.target.name);
        //console.log(e.target.value);
-      setUser({...user,[e.target.name]: e.target.value});
+      setUser({...user,[e.target.name]:e.target.value});
        console.log(user);
       
   }
@@ -51,8 +47,6 @@ const SignUser = () => {
         console.log(user);
         e.preventDefault();
         try {
-          
-
             res = await UsersServer.registerUser(user);
             console.log("RES: ", res);
             const data = await res.json();
@@ -66,12 +60,12 @@ const SignUser = () => {
           console.log(error);
         }
     }
+   
 
-
-  
+  {
     return (
       <form onSubmit={handleSubmit}>
-        <h3>Sign up</h3>
+        <h3>Sign Up</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -84,8 +78,8 @@ const SignUser = () => {
         <div className="mb-3">
           <label>Username</label>
           <input
-            type="text"
             className="form-control"
+            type="text" name="nombre"
             placeholder="First name"
             value={user.username} onChange={handleInputChange} 
           />
@@ -96,7 +90,7 @@ const SignUser = () => {
             type="text"
             className="form-control"
             placeholder="First name"
-            value={user.names} onChange={handleInputChange} 
+            value={user.name} onChange={handleInputChange} 
           />
         </div>
         <div className="mb-3">
@@ -126,6 +120,6 @@ const SignUser = () => {
         </p>
       </form>
     )
-  };
-
+  }
+};
 export default SignUser;
