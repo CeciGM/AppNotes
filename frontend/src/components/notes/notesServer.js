@@ -14,16 +14,12 @@ export const registerNote = async (newNote) => {
     console.log(newNote)
     return await fetch(API_URL1,{
         method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        mode: 'no-cors', //
-        // headers: [],
+        headers:new Headers({'content-type': 'application/json'}), 
         body: JSON.stringify({
-            "user_id": String(newNote.user_id).trim(),
-            "title": String(newNote.ititle).trim(),
+            "user_id": Number(newNote.id_user),
+            "title": String(newNote.title),
             "description": String(newNote.description),
-            "condition": Number(newNote.condition)
+            "condition": String(newNote.condition)
         })
     });
 };
@@ -39,14 +35,12 @@ export const updateNote = async (noteid, newNote) => {
     return await fetch(`${API_URL3}${noteid}`),{
         // metodos doc: https://www.w3schools.com/tags/ref_httpmethods.asp || doc: https://openjavascript.info/2022/01/03/using-fetch-to-make-get-post-put-and-delete-requests/
         method: 'PUT',
-        headers:{
-            'Content-Type': 'application/json'
-        },
+        headers:new Headers({'content-type': 'application/json'}),
         body: JSON.stringify({
-            "user_id": String(newNote.user_id).trim(),
-            "title": String(newNote.ititle).trim(),
+            "user_id": Number(newNote.id_user),
+            "title": String(newNote.title),
             "description": String(newNote.description),
-            "condition": Number(newNote.condition)
+            "condition": String(newNote.condition)
         })
 
     };

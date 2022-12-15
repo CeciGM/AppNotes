@@ -10,13 +10,13 @@ export const registerUser = async (newUser) => {
         headers:{
             'Content-Type': 'application/json'
         },
-        mode: 'no-cors', 
+         
         body: JSON.stringify({ 
-            "email" : String(newUser.email).trim(),
-            "username" : String(newUser.username).trim,
-            "name" : String(newUser.name).trim,
-            "last_name" :String(newUser.lastname).trim(),
-            "password" : String(newUser.password).trim() 
+            "email" : String(newUser.email),
+            "username" : String(newUser.username),
+            "name" : String(newUser.name),
+            "last_name" :String(newUser.last_name),
+            "password" : String(newUser.password)
         })
         
     });

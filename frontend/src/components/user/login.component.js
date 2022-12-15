@@ -15,20 +15,19 @@ export default function Login() {
     const requestOptions={
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        mode: 'no-cors',
-        body: JSON.stringify({mail : user, password : password })
+        body: JSON.stringify({username : user, password : password })
     };
 
     const login = async()=>{
         fetch('http://localhost:8000/api/auth/login/',requestOptions)
-        .then(response => {if (response.status == 400) {
-           alert("user not found")
-           window.location.reload();
-        }else{
-            console.log(response.json());
-            window.location.replace('/sign-up');
-        }})
-        
+        .then((response) => {
+          console.log(response);
+          /*localStorage.setItem("user_id",response.user.id)*/
+          //window.location.replace('/');
+        })
+        .catch(error=>{
+          console.log(error)
+        })
     };
     const handleSubmit= (event)=>{
       event.preventDefault();
@@ -40,18 +39,18 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <h3>Sign In</h3>
         <div className="mb-3">
-          <label>Email address</label>
+          <label htmlFor="username">username</label>
           <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
+            type="text"  name='username' id='username'
+            className="form-control" 
+            placeholder="Enter username"
             onChange={onChangeUser} value ={user} required
           />
         </div>
         <div className="mb-3">
-          <label>Password</label>
+          <label htmlFor="password">Password</label>
           <input
-            type="password"
+            type="password" name='password' id='password'
             className="form-control"
             placeholder="Enter password"
             onChange={onChangePas} value={password} required

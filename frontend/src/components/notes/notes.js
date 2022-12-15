@@ -22,7 +22,7 @@ const Notes = () => {
 
     // HOOK useState
     const initialState = {    
-        id_user: 0,   
+        id_user: 1,   
         title: '',
         description:'',        
         condition: 0
@@ -30,27 +30,15 @@ const Notes = () => {
 
     const [note, setNotes] = useState(initialState);
     
-    // FUNCION PARA OBTENER NUESTRO HEROE
-    const getNotes = async () => { 
-        try{
-            const res = await NotesServer.listNotes();
-            const data = await res.json();
-            const { id_user, title, description, condition } = data.heroe;
-            setNotes({ id_user, title, description, condition });
-        } catch (error){
-            console.log(error)
-
-        }
-    }
+   
 
 
     const handleInputChange = (e) => {
-        //  console.log(e);
-        // console.log(e.target.name);
-        // console.log(e.target.value);
+          console.log(e);
+         console.log(e.target.name);
+         console.log(e.target.value);
         setNotes({ ...note,[e.target.name]: e.target.value});
          console.log(note);
-        
     }
 
     const handleInputSelectCondicion = (e) =>{
@@ -108,24 +96,24 @@ const Notes = () => {
                 <form onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="mb-8">
-                            <label className="form-label col-12" htmlFor="nombre">Titulo </label>
+                            <label className="form-label col-12" htmlFor="title">Titulo </label>
                             {/* {heroe.nombre} */}
-                            <input className="form-control" type='text' name='nombre' id='nombre' value={note.title} onChange={handleInputChange}>
+                            <input className="form-control" type='text' name='title' id='title' value={note.title} onChange={handleInputChange}>
                             </input>
                         </div>
                     </div>
                     <div className="row">
                         <div className="mb-8">
-                            <label className="form-label col-12" htmlFor="nombre">Descripcion </label>
-                            <input className="form-control" type='text' name='identidad_secreta' id='identidad_secreta' value={note.description} onChange={handleInputChange}>
+                            <label className="form-label col-12" htmlFor="description">Descripcion </label>
+                            <input className="form-control" type='text' name='description' id='description'  value={note.description} onChange={handleInputChange}>
                             </input>
                         </div>
                     </div>
                     <div className="row">
                         <div className="mb-6">
                             <div className="mb-6">
-                                <label className="form-label" htmlFor="universo"> Condicion</label>
-                                <Select id="universo" name="universo" className="form-control"
+                                <label className="form-label" htmlFor="condition"> Condicion</label>
+                                <Select id="condition" name="condition" className="form-control"
                                         onChange={handleInputSelectCondicion}
                                         // onChange={handleInputChange}
                                         classNamePrefix="my-react-select"
@@ -144,15 +132,12 @@ const Notes = () => {
                     </div>
                     <div className="row">
                         <div className="d-grid gap-2">
-                            {params.id ? (
-                            <button type="submit" className="btn btn-block btn-primary mb-12">
-                                Update
-                            </button>
-                            ) : (
+                        
+                            
                             <button type="submit" className="btn btn-block btn-success mb-12">
                                 Register
                             </button>
-                            )}
+                            
                         </div> 
                     </div>
                 </form>

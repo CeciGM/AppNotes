@@ -67,44 +67,44 @@ const SignUser = () => {
       <form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <div className="mb-3">
-          <label>Email address</label>
+          <label htmlFor="email">Email address</label>
           <input
-            type="email"
+            type="email" name='email' id='email'
             className="form-control"
             placeholder="Enter email"
             value={user.email}  onChange={handleInputChange}
           />
         </div>
         <div className="mb-3">
-          <label>Username</label>
+          <label htmlFor="username">Username</label>
           <input
             className="form-control"
-            type="text" name="nombre"
+            type="text" name='username' id='username'
             placeholder="First name"
             value={user.username} onChange={handleInputChange} 
           />
         </div>
         <div className="mb-3">
-          <label>First name</label>
+          <label htmlFor="name">First name</label>
           <input
-            type="text"
+            type="text" name='name' id='name'
             className="form-control"
             placeholder="First name"
             value={user.name} onChange={handleInputChange} 
           />
         </div>
         <div className="mb-3">
-          <label>Last name</label>
-          <input type="text" 
+          <label htmlFor="last_name">Last name</label>
+          <input type="text" name='last_name' id='last_name'
           className="form-control" 
           placeholder="Last name"
           value={user.last_name} onChange={handleInputChange}  />
         </div>
        
         <div className="mb-3">
-          <label>Password</label>
+          <label htmlFor="last_name">Password</label>
           <input
-            type="password"
+            type="password" name='password' id='password'
             className="form-control"
             placeholder="Enter password"
             value={user.password} onChange={handleInputChange} 
