@@ -62,7 +62,7 @@ const SignUser = () => {
     }
    
 
-  {
+  
     return (
       <form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
@@ -120,6 +120,5 @@ const SignUser = () => {
         </p>
       </form>
     )
-  }
-};
+  };
 export default SignUser;
