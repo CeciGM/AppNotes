@@ -5,7 +5,7 @@ const API_URL3 = 'http://localhost:8000/notesdetail-note/'
 
 
 export const listNotes = async () => {
-    return await fetch(API_URL2);
+    return await fetch(API_URL2) ;
     // return "listadode usuarios";
 };
 

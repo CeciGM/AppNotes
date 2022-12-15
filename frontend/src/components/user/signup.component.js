@@ -1,9 +1,8 @@
-import React, {useState, useEffect, set} from "react";
+import React, {useState} from "react";
 import {useParams,useNavigate } from "react-router-dom";
 
 
 // IMPORT Select (componente de react) Instalacion = npm i --save react-select 
-import Select from 'react-select';
 // DOC: https://react-select.com/home
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -55,7 +54,7 @@ const SignUser = () => {
               console.log(" ENTRA EN data.id != 0");
               setUser(initialState);
             }
-           history("/");
+           history("/createnotes");
         } catch (error) {
           console.log(error);
         }
@@ -116,7 +115,7 @@ const SignUser = () => {
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <a href="/">sign in?</a>
         </p>
       </form>
     )

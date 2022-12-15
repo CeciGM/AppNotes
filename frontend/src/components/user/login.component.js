@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 
 export default function Login() {
   const[user,setUser]= useState("");
@@ -23,7 +23,7 @@ export default function Login() {
         .then((response) => {
           console.log(response);
           /*localStorage.setItem("user_id",response.user.id)*/
-          //window.location.replace('/');
+          window.location.replace('/notes');
         })
         .catch(error=>{
           console.log(error)

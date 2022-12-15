@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {useParams,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { useHistory, Navigate , useParams } from "react-router-dom";
 
 // IMPORT Select (componente de react) Instalacion = npm i --save react-select 
@@ -73,7 +74,7 @@ const Notes = () => {
           } else {
             res = await NotesServer.updateNote(params.id, note);
           }
-           history("/");
+           history("/notes");
         } catch (error) {
           console.log(error);
         }
@@ -133,11 +134,11 @@ const Notes = () => {
                     <div className="row">
                         <div className="d-grid gap-2">
                         
-                            
-                            <button type="submit" className="btn btn-block btn-success mb-12">
+                        
+                            <button type="submit" className="btn btn-block btn-success mb-12" >
                                 Register
                             </button>
-                            
+                      
                         </div> 
                     </div>
                 </form>
