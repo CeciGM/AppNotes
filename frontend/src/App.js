@@ -39,6 +39,7 @@ function App() {
               <Route path="/sign-up" element={<SignUser />} />
               <Route path="/notes" element={<AllNotes />} />
               <Route path="/createnotes" element={<Notes />} />
+            
             </Routes>
           </div>
         </div>

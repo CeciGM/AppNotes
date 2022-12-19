@@ -29,7 +29,7 @@ export const getNoteId = async (noteId) => {
     return await fetch(`${API_URL2}${noteId}`);
 };
 
-// ACTUALIZA UN HEROE
+// ACTUALIZA UN nota
 export const updateNote = async (noteid, newNote) => {
     // AQUI DEBEMOS DEFINIR LOS PARAMETOS PARA ENVIAR LOS DATOS AL BACKEND
     return await fetch(`${API_URL3}${noteid}`),{
@@ -46,5 +46,18 @@ export const updateNote = async (noteid, newNote) => {
     };
 };
 
+//ELIMINA nota
+
+export const DeleteNote = async (noteId) => {
+    return await fetch(`${API_URL3}${noteId}${'/'}`,{
+        method: 'DELETE',
+         headers: {
+            'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+           },
+        
+      
+    });
+    
+};
 
 
