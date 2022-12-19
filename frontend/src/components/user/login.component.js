@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import swal from "sweetalert2";
 
 export default function Login() {
   const[user,setUser]= useState("");
@@ -20,20 +21,32 @@ export default function Login() {
 
     const login = async()=>{
         fetch('http://localhost:8000/api/auth/login/',requestOptions)
-        .then((response) => {
-          console.log(response);
-          /*localStorage.setItem("user_id",response.user.id)*/
-          window.location.replace('/notes');
-        })
-        .catch(error=>{
-          console.log(error)
-        })
+        .then(response => {if (response.status == 401) {
+          swal.fire({
+           text: "Datos incorrectos",
+           icon: 'error',
+          }).then((result) => {
+           if (result.isConfirmed) {
+               window.location.reload();
+               return response.json()
+           }})
+       }
+       if(response.status==200){
+         swal.fire({icon: 'success'}
+         ).then((result) => {
+           if (result.isConfirmed) {
+             window.location.replace('/notes');
+             return response.json()
+           }})
+    }})
+    
     };
     const handleSubmit= (event)=>{
       event.preventDefault();
       login();
 
   };
+  /**/
 
     return (
       <form onSubmit={handleSubmit}>
